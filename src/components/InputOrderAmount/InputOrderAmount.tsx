@@ -19,6 +19,7 @@ export const InputOrderAmount = ({ amountInput, setAmountInput, buyLotto }: Inpu
       <Input
         label="구입할 금액을 입력해주세요."
         placeholder="금액"
+        autoFocus
         value={amountInput}
         onChange={(event) => setAmountInput(event.target.value)}
       />
