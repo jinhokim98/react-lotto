@@ -5,17 +5,13 @@ import { InputWinNumbers } from '../components/InputWinNumbers/InputWinNumbers';
 import { useReducer } from 'react';
 import { StatisticsModal } from '../components/StatisticsModal/StatisticsModal';
 import { useInputWinNumbers } from '../hooks/useInputWinNumbers';
-import { useGetLottoStatistics } from '../hooks/useGetLottoStatistics';
 import { Layout } from '../components/Layout/Layout';
+import { compareTicketAndWinNumbers } from '../utils/compareTicketAndWinNumbers';
 
 export const Lotto = () => {
   const { amountInput, setAmountInput, buyLotto, lottoTickets } = useBuyLotto();
   const { winNumbers, bonusNumber, ...rest } = useInputWinNumbers();
-  const { lottoStatistics, compareTicketAndWinNumbers } = useGetLottoStatistics({
-    lottoTickets,
-    winNumbers,
-    bonusNumber,
-  });
+  const lottoStatistics = compareTicketAndWinNumbers({ lottoTickets, bonusNumber, winNumbers });
 
   const [isModalOpen, setIsModalOpen] = useReducer((state: boolean) => !state, false);
 
@@ -29,11 +25,7 @@ export const Lotto = () => {
       {lottoTickets.length > 0 && (
         <>
           <ShowMyTickets lottoTickets={lottoTickets} />
-          <InputWinNumbers
-            {...rest}
-            compareTicketAndWinNumbers={compareTicketAndWinNumbers}
-            handleModalState={handleModalState}
-          />
+          <InputWinNumbers {...rest} handleModalState={handleModalState} />
         </>
       )}
       {isModalOpen && <StatisticsModal lottoStatistics={lottoStatistics} onClose={handleModalState} />}

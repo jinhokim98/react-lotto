@@ -12,6 +12,7 @@ type StatisticsModalProps = {
 
 export const StatisticsModal = ({ lottoStatistics, onClose }: StatisticsModalProps) => {
   const modalRef = useRef<HTMLElement>(null);
+
   const getSpecificRankCount = (rank: number) => {
     return lottoStatistics.filter((lotto) => lotto.rank === rank).length;
   };

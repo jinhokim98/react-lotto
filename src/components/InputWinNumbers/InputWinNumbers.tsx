@@ -5,19 +5,16 @@ import * as Styled from './InputWinNumbers.style';
 
 type InputWinNumberProps = Omit<ReturnType<typeof useInputWinNumbers>, 'winNumbers' | 'bonusNumber'> & {
   handleModalState: () => void;
-  compareTicketAndWinNumbers: () => void;
 };
 
 export const InputWinNumbers = ({
   handleWinNumbers,
   handleBonusNumber,
   canSubmit,
-  compareTicketAndWinNumbers,
   handleModalState,
 }: InputWinNumberProps) => {
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    compareTicketAndWinNumbers();
     handleModalState();
   };
 
