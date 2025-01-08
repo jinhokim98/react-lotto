@@ -47,16 +47,20 @@ export const Title = styled.h2`
   text-align: center;
 `;
 
-export const Table = styled.div`
+export const Table = styled.table`
   display: flex;
   flex-direction: column;
 `;
 
-export const HeaderRow = styled.div`
-  display: flex;
+export const THead = styled.thead`
   width: 100%;
   height: 40px;
+`;
 
+export const THeadTr = styled.tr`
+  display: flex;
+  width: 100%;
+  height: 100%;
   padding: 8px 0;
 
   border-top: 1px solid ${({ theme }) => theme.color.grayScale5opacity12};
@@ -66,7 +70,12 @@ export const HeaderRow = styled.div`
   font-weight: 600;
 `;
 
-export const Row = styled.div`
+export const TBody = styled.tbody`
+  width: 100%;
+  height: 100%;
+`;
+
+export const Tr = styled.tr`
   display: flex;
   width: 100%;
   height: 40px;
@@ -79,7 +88,7 @@ export const Row = styled.div`
   font-weight: 400;
 `;
 
-export const Column = styled.div<{ $flex: number }>`
+export const Td = styled.td<{ $flex: number }>`
   flex: ${({ $flex }) => $flex};
   text-align: center;
   white-space: nowrap;
