@@ -7,10 +7,10 @@ import { LottoRank } from '../../types/ServiceType';
 
 type StatisticsModalProps = {
   lottoStatistics: LottoRank[];
-  close: () => void;
+  onClose: () => void;
 };
 
-export const StatisticsModal = ({ lottoStatistics, close }: StatisticsModalProps) => {
+export const StatisticsModal = ({ lottoStatistics, onClose }: StatisticsModalProps) => {
   const modalRef = useRef<HTMLElement>(null);
   const getSpecificRankCount = (rank: number) => {
     return lottoStatistics.filter((lotto) => lotto.rank === rank).length;
@@ -27,7 +27,7 @@ export const StatisticsModal = ({ lottoStatistics, close }: StatisticsModalProps
 
   return createPortal(
     <Styled.DimmedLayer>
-      <ClickOutsideDetector targetRef={modalRef} onClickOutside={close}>
+      <ClickOutsideDetector targetRef={modalRef} onClickOutside={onClose}>
         <Styled.Modal ref={modalRef}>
           <Styled.CloseButton onClick={close}>X</Styled.CloseButton>
           <Styled.Title>🏆 당첨 통계 🏆</Styled.Title>

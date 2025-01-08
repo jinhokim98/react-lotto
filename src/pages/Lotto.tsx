@@ -43,7 +43,7 @@ export const Lotto = () => {
         )}
       </Styled.Main>
       <Footer />
-      {isModalOpen && <StatisticsModal lottoStatistics={lottoStatistics} close={handleModalState} />}
+      {isModalOpen && <StatisticsModal lottoStatistics={lottoStatistics} onClose={handleModalState} />}
     </Styled.Page>
   );
 };
