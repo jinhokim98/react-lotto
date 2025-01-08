@@ -6,7 +6,7 @@ type CompareTicketAndWinNumbersArgs = {
   bonusNumber: number;
 };
 
-export const getRank = (compareSet: Set<number>, bonusNumber: number): LottoRank => {
+const getRank = (compareSet: Set<number>, bonusNumber: number): LottoRank => {
   if (compareSet.size >= 10) return { rank: 0, price: 0 };
   if (compareSet.size === 9) return { rank: 5, price: 5000 };
   if (compareSet.size === 8) return { rank: 4, price: 50000 };
