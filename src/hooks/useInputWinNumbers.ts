@@ -3,7 +3,7 @@ import { LottoTicket } from '../types/ServiceType';
 
 export const useInputWinNumbers = () => {
   const [winNumbers, setWinNumbers] = useState<LottoTicket>([]);
-  const [bonusNumber, setBonusNumber] = useState<number>(0);
+  const [bonusNumber, setBonusNumber] = useState(0);
   const [canSubmit, setCanSubmit] = useState(false);
 
   const handleWinNumbers = (winNumber: string, index: number) => {
